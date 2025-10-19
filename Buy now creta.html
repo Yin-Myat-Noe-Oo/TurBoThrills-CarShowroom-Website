@@ -1,0 +1,233 @@
+Ei Thuzar Nwe, [9/9/2024 10:04 PM]
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="table.css">
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+      
+      <style>
+         .bg-image{
+            background-image: url("carbg.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+         }
+         table {
+            margin-top: 2%;
+            border: 1px solid #d4af37;
+            background-color: black; 
+            
+            color: white;
+            float: right;
+            position: absolute;
+            right: 9%;
+            top: 5%;
+         }
+         th, td {
+            padding: 10px;
+            border: none;
+            text-align: center;
+            background-color: black;
+         }
+         body {
+            background-color: black;
+         }
+         input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background-color: #3c3c3c;
+            color: black;
+         }
+         button {
+            margin-left: 3%;
+            border-radius: 8px;
+            background-color: #d4af37;
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+         }
+         button:hover {
+            background-color: #b58f2b;
+         }
+         h1, h3 {
+            color: #d4af37;
+         }
+         a {
+            color: white;
+            text-decoration: none;
+         }
+         a:hover {
+            text-decoration: none;
+         }
+         .luxury-border {
+            border: 2px solid #d4af37;
+         }
+         .checkbox-label {
+            display: inline-block;
+            vertical-align: middle;
+         }
+         #box {
+            display: inline-block;
+            vertical-align: middle;
+         }
+         
+      </style>
+   </head>
+   <body class="bg-image">
+      <table border="4px" align="center">
+         <tr>
+            <td rowspan="17">
+               <img src="cretwhite.jpg" id="carImage" width="600" height="400">
+            </td>
+            <td colspan="2" align="center">
+               <h1><b> Booking Creta </b></h1>
+            </td>
+         </tr>
+         <tr>
+            <td>Enter Your Name :</td>
+            <td>
+               <input type="text" class="input" id="name" placeholder="Name" style="background-color: lightgrey" required>
+            </td>
+         </tr>
+         <tr>
+            <td>Enter Your E-mail Address :</td>
+            <td>
+               <input type="email" class="input" id="email" name="email" placeholder="abcd@gmail.com" style="background-color: lightgrey" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            </td>
+         </tr>
+         <tr>
+            <td>Enter Mobile No :</td>
+            <td><input type="text" id="mobile" class="input" placeholder="+959xxxxxxxxx" pattern="[+]{1}[1-9]{12}" style="background-color: lightgrey" required></td>
+         </tr>
+         <tr>
+            <td>City :</td>
+            <td>
+               <select name="City" style="background-color: lightgrey" id="city" required>
+                  <option value="-">Select City</option>
+                  <option value="Yangon" id="yangon">Yangon</option>
+                  <option value="Mandalay" id="mandalay">Mandalay</option>
+                  <option value="NayPyiTaw" id="naypyitaw">NayPyiTaw</option>
+                  <option value="Taunggyi" id="taungyi">Taunggyi</option>
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td> NRC No :</td>
+            <td>
+               <input type="text" class="input" placeholder="xx/xxx(N)123456" id="nrc_no" style="background-color: lightgrey" required>
+            </td>
+         </tr>
+         <tr>
+            <td>Select Car Colour :</td>
+            <td>
+
+<select name="carColor" id="carColor" style="background-color: lightgrey" required>
+                <option value="-">Select Car Colour</option>
+                  <option value="white" id="white">White</option>
+                  <option value="grey" id="grey">grey</option>
+                  <option value="red" id="red">Red</option>
+                  <option value="blue" id="blue">Blue</option>
+                  <option value="black" id="black">Black</option>
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td>Select Payment Option :</td>
+            <td>
+               <select name="payment" style="background-color: lightgrey" id="payment" required>
+                  <option value="-">Select Payment Option</option>
+                  <option value="Debit Cards" id="visa_cards">Visa Cards</option>
+                  <option value="Credit Cards" id="credit_cards">Credit Cards</option>
+                  <option value="Google Pay" id="cb_pay">CB Pay</option>
+                  <option value="ahmedabad" id="kbz_pay">KBZ Pay</option>
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">
+                <button type="submit" class="buybutton1" onclick="submitForm(event)">Book Now</button>
+            </td>
+        </tr>
+    </table>
+      </table>
+     <script>
+         
+         document.getElementById('carColor').addEventListener('change', function() {
+    var selectedColor = this.value;
+    var carImage = document.getElementById('carImage');
+    
+    // Set default dimensions
+    var width = '600';  // Default width in pixels
+    var height = '400'; // Default height in pixels
+
+    if (selectedColor === 'white') {
+        carImage.src = 'cretawhite.jpg';
+        width = '600';  // Example new width for white
+        height = '400'; // Example new height for white
+    } else if (selectedColor === 'blue') {
+        carImage.src = 'cretablue.jpg';
+        width = '600';  // Example new width for blue
+        height = '400'; // Example new height for blue
+    } else if (selectedColor === 'red') {
+        carImage.src = 'cretared.jpg';
+        width = '600';  // Example new width for red
+        height = '400'; // Example new height for red
+    } else if (selectedColor === 'grey') {
+        carImage.src = 'cretagrey.jpg';
+        width = '600';  // Example new width for grey
+        height = '400'; // Example new height for grey
+    } else if (selectedColor === 'black') {
+        carImage.src = 'cretablack.jpg';
+        width = '600';  // Example new width for black
+        height = '400'; // Example new height for black
+    } else {
+        carImage.src = 'cretwhite.jpg'; // Default image
+    }
+
+    // Apply the new dimensions to the car image
+    carImage.style.width = width + 'px';
+    carImage.style.height = height + 'px';
+});
+
+         function submitForm(event) {
+            event.preventDefault();
+        
+            // Capture form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const city = document.getElementById('city').value;  // Correct reference
+            const nrc_no = document.getElementById('nrc_no').value;  // Correct reference
+            const carColor = document.getElementById('carColor').value;
+            const payment = document.getElementById('payment').value;
+
+            if (!name || !email || !mobile ||  city === "-" || !nrc_no || carColor === "-" || payment === "-") {
+                alert("Please complete all fields before booking.");
+                return; // Stop form submission
+            }
+        
+        
+            // Store data in localStorage
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('mobile', mobile);
+            localStorage.setItem('city', city);
+            localStorage.setItem('nrc_no', nrc_no);
+            localStorage.setItem('carColor', carColor);
+            localStorage.setItem('payment', payment);
+        
+            // Redirect to the print page
+            window.location.href = "print.html";
+        }
+        
+      </script>
+     
+   </body>
+</html>

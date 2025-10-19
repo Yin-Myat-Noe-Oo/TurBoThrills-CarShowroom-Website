@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <link rel="stylesheet" type="text/css" href="bs/css/bootstrap.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+    #myVideo {
+      width: 100vw; /* Full viewport width */
+      height: auto; /* Maintain aspect ratio */
+      max-height: 100vh; /* Ensure it doesn't exceed the viewport height */
+      object-fit: cover; /* Ensure it covers the viewport while maintaining aspect ratio */
+    }
+    video::-webkit-media-controls {
+      display: none !important; /* Hide controls in WebKit browsers (Chrome, Safari) */
+    }
+    video::-moz-media-controls {
+      display: none !important; /* Hide controls in Mozilla browsers (Firefox) */
+    }
+    video::-ms-media-controls {
+      display: none !important; /* Hide controls in Microsoft browsers (Edge) */
+    }
+    .jumbotron {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: gold;
+      z-index: 10;
+    }
+    .bg-image {
+      background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a translucent background to the jumbotron for better readability */
+    }
+    .container-fluid {
+      z-index: 20; /* Ensures the navbar stays on top of both video and jumbotron */
+    }
+    .blurred-container {
+      backdrop-filter: blur(10px); /* Apply blur effect */
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      border: 2px solid gold; /* Gold border */
+      padding: 20px;
+      max-width: 600px; /* Adjust container width */
+      margin: auto; /* Center it horizontally */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand order-1" href="#" style="color:gold;font-weight: bold;">TurBo Thrills</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" style="color:gold;font-weight: bold;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html" style="color:gold;font-weight: bold;">login</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html" style="color:gold;font-weight: bold;">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="review.html" style="color:gold;font-weight: bold;">Client Review</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="Contact.html" style="color:gold;font-weight: bold;">Contact Us</a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Video -->
+  <video id="myVideo" width="500" height="300" autoplay loop muted>
+    <source src="carvideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron jumbotron-fluid text-center py-5 bg-transparent bg-image">
+    <div class="container blurred-container">
+      <h1 class="display-4 text-light" style="text-shadow: 2px 3px rgb(221, 190, 19);font-weight: bold;">TURBO THRILLS</h1>
+      <div class="group mt-4">
+        <a class="btn btn-light text-lg mx-2" href="https://www.youtube.com/@HyundaiMotorUK" style="border:1px solid gold">WATCH VIDEOS</a>
+        <a class="btn btn-light text-lg mx-2" href="https://www.popularhyundai.com/achievements_awards.php" style="border:1px solid gold">READ ACHIEVEMENT</a>
+        <a class="btn btn-light text-lg mx-2" href="https://hyundaimotor.com.mm/" style="border:1px solid gold">LEARN MORE</a>
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $('.icon').click(function() {
+      $('span').toggleClass("cancel");
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            color: #f0f0f0;
+            background-color: #1e1e1e;
+        }
+        .bg-image {
+            background-image: url("FUTURE MOTORS.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .blurred-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(12px); /* Slightly increased blur */
+    background: rgba(21, 20, 20, 0.885); /* Darker background for more luxury */
+    border: 3px solid #5f9ea0; /* Cadet Blue border */
+    border-radius: 20px; /* More rounded corners */
+    padding: 40px;
+    width: 400px;
+    max-width: 90%; /* Responsive design */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Enhanced shadow for depth */
+    color: #f0f0f0;
+    text-align: center;
+}
+
+.blurred-container h1 {
+    font-size: 2.5em;
+    color: #5f9ea0;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+                font-family: 'Playfair Display', serif;
+
+}
+
+.blurred-container input[type=text], .blurred-container input[type=password] {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #5f9ea0; /* Cadet Blue border */
+    border-radius: 12px;
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    font-size: 16px;
+}
+
+.blurred-container input[type=text]:focus, .blurred-container input[type=password]:focus {
+    border-color: #f0f0f0;
+    background-color: #333;
+    outline: none;
+}
+
+.blurred-container button {
+    background: linear-gradient(45deg, #5f9ea0, #4682b4); /* Luxurious gradient */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.blurred-container button:hover {
+    background: linear-gradient(45deg, #4682b4, #5f9ea0); /* Inverted gradient on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Darker shadow on hover */
+}
+
+.blurred-container h4 {
+    margin-top: 20px;
+    color: #5f9ea0;
+}
+
+.blurred-container a {
+    color: #5f9ea0;
+    text-decoration: none;
+}
+
+.blurred-container a:hover {
+    text-decoration: underline;
+}
+
+        input[type=text], input[type=password] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #5f9ea0; /* Cadet Blue border */
+            border-radius: 8px;
+            background-color: #2b2b2b;
+            color: #f0f0f0;
+            font-size: 16px;
+        }
+        input[type=text]:focus, input[type=password]:focus {
+            border-color: #f0f0f0;
+            background-color: #333;
+            outline: none;
+        }
+        button {
+            background: linear-gradient(45deg, #5f9ea0, #4682b4); /* Cadet Blue gradient */
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #4682b4, #5f9ea0); /* Inverted gradient on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+        .w3-sidebar {
+            background-color: #2b2b2b; /* Darker background */
+            color: #5f9ea0; /* Cadet Blue text */
+        }
+        .w3-sidebar a {
+            color: #5f9ea0;
+        }
+        .w3-sidebar a:hover {
+            background-color: #444;
+        }
+        .w3-sidebar .closebtn {
+            color: #5f9ea0;
+        }
+        .logo {
+            display: block;
+            margin: 20px auto;
+            border-radius: 15px;
+        }
+        h1 {
+            color: #5f9ea0;
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+        }
+        h4 {
+            color: #5f9ea0;
+            margin-top: 20px;
+        }
+        a {
+            color: #5f9ea0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .openbtn {
+            background: #2b2b2b;
+            color: #5f9ea0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image">
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="leftMenu">
+            <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large"  style="text-decoration: none;">× Close</button>
+            <a href="index.html" class="w3-bar-item w3-button" style="text-decoration: none;"><b>Home</b></a>
+            <a href="login.html" target="_blank" class="w3-bar-item w3-button"  style="text-decoration: none;"><b>Login</b></a>
+            <a href="signup.html" target="_blank" class="w3-bar-item w3-button"  style="text-decoration: none;"><b>Sign Up</b></a>
+    
+
+        </div>
+
+        <button class="openbtn" onclick="openLeftMenu()">&#9776; Menu</button>
+
+        <div class="blurred-container">
+            <h1>Login Now</h1>
+            <form id="loginForm" action="find car.html" method="post">
+                <input type="text" name="username" placeholder="Enter Username" required><br>
+                <input type="password" name="password" placeholder="Enter Password" minlength="5" maxlength="10" required><br>
+                <button type="submit">Login</button>
+                <h4>New User? <a href="signup.html">Sign Up</a></h4>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openLeftMenu() {
+            document.getElementById("leftMenu").style.display = "block";
+        }
+        
+        function closeLeftMenu() {
+            document.getElementById("leftMenu").style.display = "none";
+        }
+        
+        function validateForm(event) {
+            var username = document.forms["loginForm"]["username"].value;
+            var password = document.forms["loginForm"]["password"].value;
+            if (username == "" || password == "") {
+                alert("Username and Password must be filled out");
+                event.preventDefault();
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("loginForm").addEventListener("submit", validateForm);
+        });
+    </script>
+</body>
+</html>

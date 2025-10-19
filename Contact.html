@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bs/css/bootstrap.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            font-weight: 300; 
+            color: #f8f9fa;
+            background-color: #343a40;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /* Sidebar styling */
+        .w3-sidebar {
+            z-index: 3;
+            width: 280px;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            background-color: #2c3e50;
+            position: fixed;
+            transform: translateX(-100%);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .w3-sidebar.open {
+            transform: translateX(0);
+        }
+
+        .w3-sidebar h3 {
+            padding: 20px;
+            color: #f1c40f;
+            border-bottom: 1px solid #34495e;
+            font-size: 1.5em;
+        }
+
+        .w3-sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ecf0f1;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .w3-sidebar a:hover {
+            background-color: #34495e;
+            color: #f1c40f;
+        }
+
+        .w3-main {
+            margin-left: 0;
+            padding: 20px;
+            width: 100%;
+            transition: margin-left 0.4s ease;
+        }
+
+        .w3-main.shifted {
+            margin-left: 280px;
+        }
+
+        /* Button to toggle the sidebar */
+        .sidebar-toggle-btn {
+            font-size: 30px;
+            cursor: pointer;
+            color: #f1c40f;
+            background: none;
+            border: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 4; /* Ensure it's above the sidebar */
+            transition: color 0.3s ease;
+        }
+
+        .sidebar-toggle-btn:hover {
+            color: #f39c12;
+        }
+
+        /* Card styling */
+        table {
+            margin: 0 auto;
+            border-spacing: 30px;
+        }
+
+        td {
+            padding: 20px;
+        }
+
+        .card {
+            width: 320px;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid #d4af37; /* Gold border */
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            text-align: center; 
+            margin: 10px;
+            background-color: #2c3e50;
+        }
+
+        .card:hover {
+            border-color: #f1c40f; /* Brighter gold */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px);
+        }
+
+        .card input[type="radio"] {
+            display: none;
+        }
+
+        .card input[type="radio"]:checked + .card-body {
+            border: 2px solid #f1c40f; /* Brighter gold */
+            border-radius: 15px;
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            background-color: #34495e;
+            z-index: 1;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 15px;
+            line-height: 1.6;
+            transition: background-color 0.4s ease;
+        }
+
+        .card-body ul {
+            list-style: none; 
+            padding: 0; 
+            margin: 0;
+        }
+
+        .card-body a {
+            text-decoration: none;
+            color: #f1c40f;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .card-body a:hover {
+            color: #e67e22; /* A warm orange */
+        }
+
+        h1 {
+            color: gold; 
+            padding: 20px; 
+            border-radius: 10px;
+            font-size: 2.5em;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            left: 41%;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="w3-sidebar" id="mySidebar">
+        <h3 class="w3-bar-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+        <a href="index.html" class="w3-bar-item">Home</a>
+        <a href="login.html" class="w3-bar-item">Login</a>
+        <a href="signup.html" class="w3-bar-item">Sign Up</a>
+        <a href="review.html" class="w3-bar-item">Client Review</a>
+        <a href="Contact.html" class="w3-bar-item">Contact Us</a>
+
+    </div>
+
+    <!-- Button to toggle the sidebar -->
+    <button class="sidebar-toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <!-- Main content -->
+    <div class="w3-main" id="mainContent">
+        <h1 >Team Member</h1>
+        <p style="position:relative;left:22%;">If you have any questions or need assistance, we’ll be happy to assist you with all your car showroom needs!</p>
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <label>
+                            <div class="card">
+                                <input type="radio" name="manager" value="Yu">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="Yu.jpg" alt="Yu Thet Htar Oo">
+                                    <h4 class="card-title">Yu Thet Htar Oo</h4>
+                                    <h5>Finance Manager</h5>
+                                    <ul>
+                                        <li>+959762504335</li>
+                                        <li>2022-miit-cse-054@miit.edu.mm</li>
+                                    </ul>
+                                    <a href="https://t.me/anna_yutho" class="btn btn-primary">View Profile</a>
+                                </div>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <div class="card">
+                                <input type="radio" name="manager" value="Han">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="Han.jpg" alt="Han Phyo Thaw">
+                                    <h4 class="card-title">Han Phyo Thaw</h4>
+                                    <h5>Customer Relationship Manager</h5>
+                                    <ul>
+                                        <li>+959402014436</li>
+                                        <li>2022-miit-cse-003@miit.edu.mm</li>
+                                    </ul>
+                                    <a href="https://t.me/bluesmokey22" class="btn btn-primary">View Profile</a>
+                                </div>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <div class="card">
+                                <input type="radio" name="manager" value="Yin">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="Yin.jpg" alt="Yin Myat Noe Oo">
+                                    <h4 class="card-title">Yin Myat Noe Oo</h4>
+                                    <h5>Showroom Manager</h5>
+                                    <ul>
+                                        <li>+959681349202</li>
+                                        <li>2022-miit-cse-056@miit.edu.mm</li>
+                                    </ul>
+                                    <a href="https://t.me/YinMyatNoeOo22" class="btn btn-primary">View Profile</a>
+                                </div>
+                            </div>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            <div class="card">
+                                <input type="radio" name="manager" value="May">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="May.jpg" alt="May Phoo Khant">
+                                    <h4 class="card-title">May Phoo Khant</h4>
+                                    <h5>Service Manager</h5>
+                                    <ul>
+                                        <li>+959252732744</li>
+                                        <li>2022-miit-cse-058@miit.edu.mm</li>
+                                    </ul>
+                                    <a href="https://t.me/michaela_i_k" class="btn btn-primary">View Profile</a>
+                                </div>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <div class="card">
+                                <input type="radio" name="manager" value="Hlyan">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="Hlyan.jpg" alt="Hlyan Po Aung">
+                                    <h4 class="card-title">Hlyan Po Aung</h4>
+                                    <h5>Sales Manager</h5>
+                                    <ul>
+                                        <li>+959957965033</li>
+                                        <li>2022-miit-cse-049@miit.edu.mm</li>
+                                    </ul>
+                                    <a href="https://t.me/HlyanPo" class="btn btn-primary">View Profile</a>
+                                </div>
+                            </div>
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <div class="card">
+                                <input type="radio" name="manager" value="Ei">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="Ei.jpg" alt="Ei Thuzar Nwe">
+                                    <h4 class="card-title">Ei Thuzar Nwe</h4>
+                                    <h5>Senior Sales Executive Manager</h5>
+                                    <ul>
+                                        <li>+959964837695</li>
+                                        <li>2022-miit-cse-058@miit.edu.mm</li>
+                                    </ul>
+                                    <a href="https://t.me/etnberry" class="btn btn-primary">View Profile</a>
+                                </div>
+                            </div>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("mySidebar");
+            var mainContent = document.getElementById("mainContent");
+            var isOpen = sidebar.classList.contains('open');
+            
+            if (isOpen) {
+                sidebar.classList.remove('open');
+                mainContent.classList.remove('shifted');
+                document.querySelector('.sidebar-toggle-btn').innerHTML = '☰'; // Menu icon
+            } else {
+                sidebar.classList.add('open');
+                mainContent.classList.add('shifted');
+                document.querySelector('.sidebar-toggle-btn').innerHTML = 'Close'; // Close icon
+            }
+        }
+    </script>
+</body>
+</html>
